@@ -19,8 +19,8 @@ Basics of Machine Learning to predict how many balls will land in a specific buc
   - for each 'test' record, run knn using the training data
   - does the result of knn equal test?
 - Feature Normalization
-  - Difference between .51 and .54 is much smaller than 510 and 540 (look on a chart)
-  - So we must normalize them by putting the between 0 and 1
-- Common data structures for ML (array of arrays)
+  - Difference between .51 and .54 is much smaller than 510 and 540 (look on a graph)
+  - So we must normalize them by putting them between 0 and 1
 - Feature selections
   - choosing to leave some features out for better results
+- Common data structures for ML (array of arrays)
