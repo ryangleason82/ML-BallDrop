@@ -1,6 +1,6 @@
 # ML-BallDrop
 
-Basics of Machine Learning to predict how many balls will land in a specific bucket using the k nearest neighbor algorithm. Here are some of my notes
+Basics of Machine Learning to predict how many balls will land in a specific bucket using the k nearest neighbor algorithm. Here are some of my notes I took throughout the duration of the "Machine Learning With Javascript" course on Udemy.
 
 ## Important concepts learned:
 
@@ -24,3 +24,23 @@ Basics of Machine Learning to predict how many balls will land in a specific buc
 - Feature selections
   - choosing to leave some features out for better results
 - Common data structures for ML (array of arrays)
+
+## Why do we need Tensorflow?
+
+- Lodash is what we used for this but it has its pros and cons
+  - Pros:
+    - Methods for just about everything we need
+    - Excellent API design (chain, makes it easy)
+    - Can use in any JS project
+  - Cons:
+    - Extremely slow (relatively)
+    - Not 'numbers' focused. We need something numbers focused because our data is going to be huge
+    - Some number related things are awkward like getting a column of values
+- Tensorflow JS
+  - Pros:
+    - Similar API to Lodash
+    - Extremely fast for number calculations
+    - Has a 'low level' linear algebra API + higher level API for ML
+    - Similar API to numpy which is a popular Python numerical lib
+  - Cons:
+    - Still in active development
