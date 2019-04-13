@@ -10,26 +10,22 @@ function onScoreUpdate(dropPosition, bounciness, size, bucketLabel) {
 // Initiate test, generate report
 function runAnalysis() {
 	const testSetSize = 100;
-	const [testSet, trainingSet] = splitDataSet(minMax(outputs, 3), testSetSize);
+	const k = 10;
 
-	let numberCorrect = 0;
-	for (let i = 0; i < testSet.length; i++) {
-		const bucket = knn(trainingSet, testSet[i][0]);
-		if (bucket === testSet[i][3]) {
-			numberCorrect++;
-		}
-	}
-
-	_.range(1, 20).forEach(k => {
+	_.range(0, 3).forEach(feature => {
+		// feature refers to ballPosition, ballBounciness, ballSize
+		const data = _.map(outputs, row => [row[feature], _.last(row)]);
+		const [testSet, trainingSet] = splitDataSet(minMax(data, 1), testSetSize);
 		const accuracy = _.chain(testSet)
 			.filter(
-				testPoint => knn(trainingSet, _.initial(testPoint), k) === testPoint[3]
+				testPoint =>
+					knn(trainingSet, _.initial(testPoint), k) === _.last(testPoint)
 			)
 			.size()
 			.divide(testSetSize)
 			.value();
 
-		console.log("For k of ", k, " Accuracy: ", accuracy);
+		console.log("For feature of ", feature, " Accuracy: ", accuracy);
 	});
 }
 
